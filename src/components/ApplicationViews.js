@@ -1,10 +1,11 @@
 import { Route } from "react-router-dom"
-import React, { useState, useEffect } from "react"
-import { withRouter, Redirect } from "react-router-dom"
+import React from "react"
+import { withRouter } from "react-router-dom"
 import useSimpleAuth from "../hooks/ui/useSimpleAuth"
 import Register from "./auth/Register"
 import Login from "./auth/Login"
 import HomePage from "./home/HomePage"
+import RecipeForm from './recipe/RecipeForm'
 
 
 
@@ -29,6 +30,13 @@ const ApplicationViews = () => {
             <Route
                 path="/login" render={props => {
                     return <Login {...props} />
+                }}
+            />
+
+            <Route
+                path="/recipe/:recipeId(\d+)"
+                render={props => {
+                    return <RecipeForm {...props} />
                 }}
             />
 
