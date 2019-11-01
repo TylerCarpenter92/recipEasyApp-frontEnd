@@ -45,9 +45,7 @@ const RecipeForm = props => {
       })
     })
       .then(response => response.json())
-      .then(response => {
-        setMyRecipe(response);
-      });
+      .then(() => props.history.push("/recipes"));
   };
 
   const deleteIngredient = id => {
@@ -82,11 +80,11 @@ const RecipeForm = props => {
           Update Recipe Name
         </Button>
       </Form>
-      <h1>Add Ingredients to Your Recipe!</h1>
-      <AddIngredient {...props} getRecipe={getRecipe} myRecipe={myRecipe} />
+      <h3>Add Ingredients to Your Recipe!</h3>
+      <AddIngredient {...props} getRecipe={getRecipe} myRecipe={myRecipe} isEdit={false} />
 
       <div>
-        <h1>ingredients list</h1>
+        <h4>ingredients list</h4>
         {myRecipe.ingredient_list ? (
           <ul>
             {myRecipe.recipe_ingredient.map(ingredient => {
@@ -113,7 +111,7 @@ const RecipeForm = props => {
       </div>
 
       <Form>
-        <h1>Instructions</h1>
+        <h2>Instructions</h2>
         <Form.Group controlId="timeToCook">
           <Form.Label>estimated time</Form.Label>
           <Form.Control

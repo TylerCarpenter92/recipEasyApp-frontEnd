@@ -56,6 +56,7 @@ const AddIngredient = props => {
     <Form>
       <Form.Group controlId="ingredientName">
         <Form.Label>Ingredient Name</Form.Label>
+        
         <Form.Control
           type="text"
           name="ingredientName"

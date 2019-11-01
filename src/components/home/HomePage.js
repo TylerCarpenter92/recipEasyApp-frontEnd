@@ -21,7 +21,7 @@ const HomePage = props => {
       .then(data => data.json())
       .then(data =>{
           console.log(data)
-        props.history.push(`/recipe/${data.id}`)
+        props.history.push(`/recipeForm/${data.id}`)
 
       })
   };

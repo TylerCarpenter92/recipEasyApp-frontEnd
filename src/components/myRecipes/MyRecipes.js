@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button"
 
 const MyRecipes = props => {
-  const [myRecipes, setMyRecipes] = useState();
+  const [myRecipes, setMyRecipes] = useState([]);
 
   const getMyRecipes = () => {
     fetch(`http://localhost:8000/recipes`, {
@@ -21,13 +23,21 @@ const MyRecipes = props => {
   return (
     <>
       <h1>Heres Your Recipes</h1>
-      {myRecipes.map(recipe => {
-          return (
-              <div key={recipe.id}>
-                  
-              </div>
-          )
-      })}
+      {myRecipes.length > 0 ?
+      myRecipes.map(recipe => {
+        return (
+          <Card style={{ width: "18rem" }} key={recipe.id}>
+            <Card.Body>
+              <Card.Title>{recipe.name}</Card.Title>
+              <Button variant="primary" onClick={() => props.history.push(`/recipe/${recipe.id}`)}>Details</Button>
+            </Card.Body>
+          </Card>
+        );
+      })
+      :
+      <h3>you have no recipes</h3>
+      }
+
     </>
   );
 };
