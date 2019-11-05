@@ -39,6 +39,7 @@ const HomePage = props => {
         />
         <button onClick={createRecipe}>add</button>
       </div>
+      
     </>
   );
 };

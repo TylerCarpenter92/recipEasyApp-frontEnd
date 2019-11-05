@@ -1,7 +1,6 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import { withRouter } from "react-router-dom";
-import useSimpleAuth from "../hooks/ui/useSimpleAuth";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import HomePage from "./home/HomePage";
@@ -9,9 +8,11 @@ import RecipeForm from "./recipe/RecipeForm";
 import MyRecipes from "./myRecipes/MyRecipes";
 import RecipeDetails from "./myRecipes/RecipeDetails";
 import MealPlan from "./mealplanning/MealPlan";
+import moment from "moment";
 
 const ApplicationViews = () => {
-  const { isAuthenticated } = useSimpleAuth();
+    let week = moment().week();
+
 
   return (
     <React.Fragment>
@@ -19,7 +20,7 @@ const ApplicationViews = () => {
         exact
         path="/"
         render={props => {
-          return <HomePage {...props} />;
+          return <HomePage week={week} {...props} />;
         }}
       />
 

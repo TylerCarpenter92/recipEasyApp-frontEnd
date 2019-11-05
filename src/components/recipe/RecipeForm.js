@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
 import "./RecipeForm.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";

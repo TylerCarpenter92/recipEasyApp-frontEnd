@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import useSimpleAuth from "../../hooks/ui/useSimpleAuth";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 
 const RecipeDetails = props => {
@@ -34,8 +33,7 @@ const RecipeDetails = props => {
   }
 
   useEffect(getRecipe, []);
-  console.log(myRecipe);
-
+ 
   return (
     <>
       <h1>{myRecipe.name}</h1>
